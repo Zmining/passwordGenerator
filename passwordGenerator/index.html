@@ -4,21 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css">
     <title>Gerador de senhas | Web</title>
+    <script defer src="./script.js"></script>
 </head>
 <body>
     <div id="header">
              <h1>Gerador de senhas</h1>
              <p>|||</p>
-             <p>|||</p>
-             <p>|||</p>
     </div>
-    <div id="line">
+    <div id="line1">
         
     </div>
     <div id="output">
         <p id="password">SENHA</p>
     </div>
-    <div id="line">
+    <div id="line2">
         
     </div>
     <div id="descricao">
@@ -26,6 +25,10 @@
         <br>A senha nunca se repetirá.
         </p>
     </div>
+    <div id="div-input">
+        <input type="number" id="input" min="5" max="10">
+    </div>
+    <label for="caracteres">Escolha quantos caracteres a senha deve conter</label>
     <div id="button">
         <button>Gerar Senha</button>
         <button>Copiar</button>
