@@ -30,10 +30,20 @@
             <input type="number" id="input" min="5" max="10">
         </div>
         <label for="caracteres">Escolha quantos caracteres a senha deve conter</label>
+        <div id="checkboxes">
+            <input type="checkbox" id="maius">
+            <label for="caracteres">Incluir letras maiúsculas</label>
+            <input type="checkbox" id="minus">
+            <label for="caracteres">Incluir letras minúsculas</label>
+            <input type="checkbox" id="numeros">
+            <label for="caracteres">Incluir números</label>
+            <input type="checkbox" id="simbolos">
+            <label for="caracteres">Incluir símbolos</label>
+        </div>
         <div id="button">
             <button id="gerarSenha">Gerar Senha</button>
             <button id="copiar">Copiar</button>
-            <button>Limpar</button>
+            <button id="limpar" onclick="copyToClipboard()">Limpar</button>
         </div>
     </div>
 </body>
