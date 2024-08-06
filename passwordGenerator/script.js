@@ -1,26 +1,40 @@
+// Definir as variáveis
+
 const senhaDigitada = document.getElementById("password");
-let senhas = [];
+const maiusculas = document.getElementById("maius");
+const minusculas = document.getElementById("minus");
+const numeros = document.getElementById("numeros");
+const simbolos = document.getElementById("simbolos");
+
+let senhas = []; // Definir o array de senhas
 
 function geraSenha(num) {
     var alfabeto = '';
     var senha = '';
 
-    // Gerar alfabeto com letras maiúsculas e minúsculas
-    for (var i = 65; i <= 90; i++) { // Letras maiúsculas
-        alfabeto += String.fromCharCode(i);
+    // Verificar se foi marcado pelo menos uma das opções
+    if (maiusculas.checked == false && minusculas.checked == false && numeros.checked == false && simbolos.checked == false) {
+        senhaDigitada.innerHTML = 'Marque pelo menos uma das opções';
+        return a
     }
-    for (var i = 97; i <= 122; i++) { // Letras minúsculas
+    
+    // Somar as opções selecionadas
+    if (maius.checked == true) {
+        for (var i = 65; i <= 90; i++) { // Letras maiúsculas
         alfabeto += String.fromCharCode(i);
-    }
-
-    // Adicionar números ao alfabeto
-    for (var i = 48; i <= 57; i++) { // Números 0-9
+    } }
+    if (minus.checked == true) {
+        for (var i = 97; i <= 122; i++) { // Letras minúsculas
         alfabeto += String.fromCharCode(i);
-    }
-
-    for( var i = 33; i <= 38; i++) {
+    } }
+    if (numeros.checked == true) {
+        for (var i = 48; i <= 57; i++) { // Números 0-9
+        alfabeto += String.fromCharCode(i);
+    }}
+    if (simbolos.checked == true) {
+        for( var i = 33; i <= 38; i++) { // Simbolos
         alfabeto += String.fromCharCode(i)
-    }
+    }}
     
     // Gerar a senha
     for (var i = 0; i < num; i++) {
@@ -31,43 +45,53 @@ function geraSenha(num) {
     return senha;
 }
 
+// Chamar a função através do botão de gerar 
 let passwordDigits = document.getElementById("input");
 let gerarSenha = document.getElementById("gerarSenha");
-
 gerarSenha.addEventListener("click", () => {
     let tamanhoSenha = parseInt(passwordDigits.value);
     if (isNaN(tamanhoSenha) || tamanhoSenha <= 0) {
-        tamanhoSenha = 15;
+        tamanhoSenha = 5;
     } else if (tamanhoSenha > 15) {
-        tamanhoSenha = 15;
+        senhaDigitada.innerHTML = "Senha muito grande, tente novamente. (1-15)";
+        return
     }
     
-    let senha = geraSenha(tamanhoSenha);
-    
-    while (senhas.includes(senha)) {
+    let senha = geraSenha(tamanhoSenha); // Pega o return da função
+
+    // Sistema de repeticão para evitar senhas repetidas
+    let counter = 0;
+    while (senhas.includes(senha) && counter < 50) {
         senha = geraSenha(tamanhoSenha);
-        console.log("Já há senha")
+        counter++;
+    }
+    if (senhas.includes(senha)) {
+        senhaDigitada.innerHTML = "Falha ao gerar senha após 50 tentativas.";
+    } else {
+        senhas.push(senha);
+        senhaDigitada.innerHTML = senha;
     }
     
-    senhas.push(senha);
-    senhaDigitada.innerHTML = senha;
+    // Verificar se está funcionando
     console.log(senhas);
+    console.log(minus.value)
 });
 
-let senha = geraSenha(tamanhoSenha);
+// Sistema e limpar
+let limpar = document.getElementById("limpar")
+limpar.addEventListener("click", () => {
+    senhaDigitada.innerHTML = "";
+})
 
-let copiar = document.getElementById("copiar")
+// Copiar a senha
+const copiar = document.getElementById('copiar');
+copiar.addEventListener('click', copyToClipboard);
+async function copyToClipboard() {
+  try {
+    const text = senhaDigitada.innerHTML;
+    await navigator.clipboard.writeText(text);
 
-
-copiar.addEventListener("click", () => {
-    const senha = senhaDigitada.innerText; // Pega o texto da senha
-    if (senha) {
-        navigator.clipboard.writeText(senha).then(() => {
-            alert('Senha copiada para o clipboard!');
-        }).catch(err => {
-            console.error('Erro ao copiar a senha: ', err);
-        });
-    } else {
-        alert('Nenhuma senha gerada para copiar.');
-    }
-});
+} catch (err) {
+    console.error('Erro ao copiar: ', err);
+} 
+}
