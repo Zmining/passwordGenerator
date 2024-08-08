@@ -8,44 +8,27 @@
     <script defer src="./script.js"></script>
 </head>
 <body>
-    <div id="tudo">
-        <div id="header">
-                <h1>Gerador de senhas</h1>
-                <p>|||</p>
+        <div class="container">
+            <h1>Gerador de senhas</h1>
+            <div class="password-output">
+                <p id="password"></p>
+            </div>
+            <p>Clique no botão abaixo para gerar uma nova senha.<br>A senha nunca se repetirá.</p>
+            <div class="options">
+                <label>Escolha quantos caracteres a senha deve conter.</label> <br>
+                <input type="number" id="input" min="4" max="20" value="8">
+            </div>
+            <div class="checkboxes">
+                <label><input type="checkbox" id="maius"> Incluir letras maiúsculas</label>
+                <label><input type="checkbox" id="minus"> Incluir letras minúsculas</label>
+                <label><input type="checkbox" id="numeros"> Incluir números</label>
+                <label><input type="checkbox" id="simbolos"> Incluir símbolos</label>
+            </div>
+            <div class="buttons">
+                <button id="gerarSenha">Gerar Senha</button>
+                <button id="copiar">Copiar</button>
+                <button id="limpar">Limpar</button>
+            </div>
         </div>
-        <div id="line1">
-            
-        </div>
-        <div id="output">
-            <p id="password">SENHA</p>
-        </div>
-        <div id="line2">
-            
-        </div>
-        <div id="descricao">
-            <p>Clique no botão abaixo para gerar uma nova senha.
-            <br>A senha nunca se repetirá.
-            </p>
-        </div>
-        <div id="div-input">
-            <input type="number" id="input" min="5" max="10">
-        </div>
-        <label for="caracteres">Escolha quantos caracteres a senha deve conter</label>
-        <div id="checkboxes">
-            <input type="checkbox" id="maius">
-            <label for="caracteres">Incluir letras maiúsculas</label>
-            <input type="checkbox" id="minus">
-            <label for="caracteres">Incluir letras minúsculas</label>
-            <input type="checkbox" id="numeros">
-            <label for="caracteres">Incluir números</label>
-            <input type="checkbox" id="simbolos">
-            <label for="caracteres">Incluir símbolos</label>
-        </div>
-        <div id="button">
-            <button id="gerarSenha">Gerar Senha</button>
-            <button id="copiar">Copiar</button>
-            <button id="limpar" onclick="copyToClipboard()">Limpar</button>
-        </div>
-    </div>
 </body>
 </html>
