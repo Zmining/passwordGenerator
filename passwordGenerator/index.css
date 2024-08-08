@@ -1,161 +1,76 @@
-*{
-    font-family: 'Dancing Script', cursive;
-}
-
-html{
-    width: 100%;
-    height: 100%;
-}
-
-body{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #222222;
-}
-
-#tudo{
-    display: flex;
-    align-self: center;
-    flex-direction: column;
-    justify-self: center;
-    width: 70%;
-    color: wheat;
-    border-radius: 30px;
-    background-color: #333333;
-}
-
-#header p{
-    margin-top: 1%;
-}
-
-#header{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    height: auto;
-    margin-bottom: 1%;
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
-    background-color: #333333;
-
-}
-
-#line1{
-    width: 100%;
-    height: 2px;
-    margin-top: 2%;
-    margin-bottom: 1%;
-    background-color: wheat;
-}
-
-#line2{
-    width: 100%;
-    height: 2px;
-    margin-top: 1%;
-    background-color: wheat;
-}
-
-#descricao{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    margin-bottom: 1%;
-    text-align: center;
-    width: 100%;
-    background-color: #333333;
-}
-
-#output{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height: 10%;
-    margin: 0 15%;
-    border-radius: 20px;
-    background-color: #222222;
-}
-
-#password {
-    font-size: 30px;
-    width: auto;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-#checkboxes{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    text-align: center;
-    width: 100%;
-    width: 100%
-}
-
-#checkboxes input{
-    margin: 1% 0%;
-    width: auto;
+* {
     margin: 0;
-    height: auto;
-    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-#checkboxes input:hover{
-    background: #222222;
-}
-
-#checkboxes label{
-    margin: 1% 2%;
-    width: auto;
-    height: auto;
-    text-align: center;
-}
-
-#button{
+body {
+    background-color: #333;
+    color: #FBE6C2;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    height: 100vh;
 }
 
-#button button{
-    margin: 0 2%;
-    height: 200%;
-    color: wheat;
-    width: auto;
-    min-width: 10%;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
+.container {
+    background-color: #282828;
+    padding: 20px;
     border-radius: 8px;
-    transition: 0.5s ease;
-    background-color: #555555;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.password-output {
     margin-bottom: 10px;
 }
 
-
-#button button:hover{
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    background-color: #333333;
-}
-
-#input{
-    border-radius: 52px;
-    background-color: #555555;
-    outline: none;
+#password {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #FBE6C2;
     text-align: center;
+    font-size: 18px;
 }
 
+.options {
+    margin-bottom: 10px;
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.options input{
+    text-align: center;
+    color: wheat;
+    text-decoration: none;
+    border: none;
+    background-color: rgb(57, 57, 57);
+}
+
+.options input:focus{
+    outline-color: wheat;
+    outline-style: solid;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -163,28 +78,24 @@ input::-webkit-inner-spin-button {
 margin: 0;
 }
 
-#div-input{
-    display: flex;
-    justify-content: center;
-    width: 100%;
+button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #FBE6C2;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+button:hover{
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #9d4d13;
 }
 
-label{
-    text-align: center;
-    margin-bottom: 1%;
+@media (max-width: 400px) {
+    .buttons {
+        flex-direction: column;
+    }
 }
-
-@media (max-width: 768px) {
-    #checkboxes {
-      flex-direction: column;
-    }
-  
-    #checkboxes label {
-      margin-bottom: 10px;
-    }
-  
-    #checkboxes input {
-      margin-bottom: 10px;
-    }
-  }
-
